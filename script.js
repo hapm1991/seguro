@@ -255,10 +255,11 @@ function generarMensajeWhatsApp(poliza, diasFaltantes) {
   return encodeURIComponent(
     `🚗 *Recordatorio de Seguro*\n\n` +
     `Hola ${poliza.nombre || 'cliente'},\n\n` +
-    `Tu seguro vencerá en *${diasFaltantes} días*:\n` +
-    `• Vehículo: ${poliza.marca || ''} ${poliza.modelo || ''}\n` +
-    `• Placa: ${poliza.placa || 'No registrada'}\n` +
-    `• Vence: ${formatearFecha(poliza.fin)}\n\n` +
+    `⚠Tu seguro vencerá en *${diasFaltantes} días*:\n ⏳` +
+    `📌 Vehículo: ${poliza.marca || ''} ${poliza.modelo || ''}\n` +
+    `🔢 Placa: ${poliza.placa || 'No registrada'}\n` +
+    `📅 Vence: ${formatearFecha(poliza.fin)}\n\n` +
+    `🛡 Renueva a tiempo y evita multas de tránsito.` +
     `¿Deseas renovar ahora?`
   );
 }
