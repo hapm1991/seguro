@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Seguros Automotores</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-car"></i> Gestor de Seguros</h1>
+        
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('registrar')">
+                <i class="fas fa-plus-circle"></i> Registrar
+            </button>
+            <button class="tab-button" onclick="openTab('vencimientos')">
+                <i class="fas fa-calendar-alt"></i> Vencimientos
+            </button>
+        </div>
+        
+        <div id="registrar" class="tab-content active">
+            <form id="seguroForm">
+                <div class="form-group">
+                    <label for="nombre"><i class="fas fa-user"></i> Nombre del Cliente:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="marca"><i class="fas fa-car-side"></i> Marca:</label>
+                    <input type="text" id="marca" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="modelo"><i class="fas fa-car-alt"></i> Modelo:</label>
+                    <input type="text" id="modelo" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="placa"><i class="fas fa-tag"></i> Placa:</label>
+                    <input type="text" id="placa" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="inicio"><i class="fas fa-calendar-plus"></i> Inicio Vigencia:</label>
+                    <input type="date" id="inicio" required onchange="calcularFinVigencia()">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fin"><i class="fas fa-calendar-times"></i> Fin Vigencia:</label>
+                    <input type="date" id="fin" required readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono"><i class="fas fa-phone"></i> Teléfono (WhatsApp):</label>
+                    <input type="tel" id="telefono" placeholder="Ej: +51987654321">
+                </div>
+                
+                <button type="submit" class="btn">
+                    <i class="fas fa-save"></i> Guardar Póliza
+                </button>
+            </form>
+        </div>
+        
+        <div id="vencimientos" class="tab-content">
+            <div class="filter-group">
+                <label for="diasFaltantes"><i class="fas fa-filter"></i> Filtrar por días faltantes:</label>
+                <select id="diasFaltantes">
+                    <option value="7">7 días</option>
+                    <option value="5">5 días</option>
+                    <option value="3">3 días</option>
+                    <option value="1">1 día</option>
+                    <option value="0">Mostrar todos</option>
+                </select>
+            </div>
+            
+            <div id="listaVencimientos" class="vencimientos-list">
+                <div class="initial-message">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Seleccione un filtro para ver las pólizas por vencer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Cargando...</p>
+    </div>
+
+    <div id="error-message" class="alert error" style="display: none;"></div>
+    <div id="success-message" class="alert success" style="display: none;"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
