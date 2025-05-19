@@ -1,5 +1,5 @@
 // Configuración
-const BACKEND_URL = "https://script.google.com/macros/s/AKfycbzAH8UORgnW-S_2FwF5Nt_EXtMcVhzBfVd0Y8fzdR5GB0FDlxqsHMeFf2ZJxz2ELgzh/exec";
+const BACKEND_URL = "https://script.google.com/macros/s/AKfycbz9auwbjvgF0S8gAKEK0s2qt8-0tmwp-64VPbZLnmK30BW5-2fC7q9-aVIgrmQZ-lYN/exec";
 
 // Elementos del DOM
 const formulario = document.getElementById('seguroForm');
